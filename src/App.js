@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import MovieList from "./Components/MovieList/MoviesList";
+import moviesData from "./Components/moviesData/moviesData";
+import MovieNav from "./Components/MovieNav/MovieNav";
+import AddMovie from "./Components/AddMovie/AddMovie";
 function App() {
+  const [titleSearch, setTitleSearch] = useState("");
+  const [rateSearch, setRateSearch] = useState(0);
+  const [moviesListData, setMoviesListData] = useState(moviesData);
+
+  const getTitleSearch = (input) => {
+    setTitleSearch(input);
+  };
+  const getRateSearch = (input) => {
+    setRateSearch(input);
+  };
+  const getMoviesListData = (input) => {
+    setMoviesListData([...moviesListData, input]);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MovieNav getTitleSearch={getTitleSearch} getRateSearch={getRateSearch} />
+      <MovieList
+        moviesListData={moviesListData}
+        titleSearch={titleSearch}
+        rateSearch={rateSearch}
+      />
+      <AddMovie getMoviesListData={getMoviesListData} />
     </div>
   );
 }
