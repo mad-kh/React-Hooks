@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Button, Modal, FormControl } from "react-bootstrap";
 import "./AddMovie.css";
+import { v4 as uuidv4 } from "uuid";
+
 const AddMovie = ({ getMoviesListData }) => {
   const [newMovie, setNewMovie] = useState({
+    id: uuidv4(),
+
     title: "",
     description: "",
     posterUrl: "",
@@ -15,6 +19,8 @@ const AddMovie = ({ getMoviesListData }) => {
   const handleSubmit = () => {
     getMoviesListData(newMovie);
     setNewMovie({
+      id: uuidv4(),
+
       title: "",
       description: "",
       posterUrl: "",
@@ -32,7 +38,7 @@ const AddMovie = ({ getMoviesListData }) => {
   return (
     <div style={{ marginLeft: "3%" }} className="Add-btn-container">
       <Button className="Add-btn" variant="primary" onClick={handleShow}>
-        +
+        Add Movies
       </Button>
 
       <Modal

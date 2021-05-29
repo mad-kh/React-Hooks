@@ -13,13 +13,9 @@ function MovieNav({ getTitleSearch, getRateSearch }) {
   return (
     <div style={{ backgroundColor: "black", color: "black" }}>
       <Navbar bg="black" variant="black">
-        <Navbar.Brand href="#home" style={{ color: "aqua" }}>
-          Movies
-        </Navbar.Brand>
+        <Navbar.Brand href="#home" style={{ color: "aqua" }}></Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home" style={{ color: "aqua" }}>
-            Home
-          </Nav.Link>
+          <Nav.Link href="#home" style={{ color: "aqua" }}></Nav.Link>
           <Nav.Link href="#features"></Nav.Link>
           <Nav.Link href="#pricing"></Nav.Link>
         </Nav>
